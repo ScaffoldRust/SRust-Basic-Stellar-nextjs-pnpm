@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SCAFFOLD-STELLAR-PNPM
 
-## Getting Started
+## Description
+This is a monorepo project structured with **pnpm** and **Next.js**, organized within the `packages` folder.
 
-First, run the development server:
+---
+
+## Prerequisites
+- **Node.js** (v18 or higher)
+- **pnpm** (v8 or higher)
+
+If you do not have `pnpm` installed, install it globally using:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+npm install -g pnpm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Installation
+    Clone the repository:
+    git clone <REPOSITORY_URL>
+    cd SCAFFOLD-STELLAR-PNPM
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install dependencies:
+    pnpm install
+    Running the Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+To start the development server for Next.js:
+    pnpm dev -F nextjs
+    The application will be running at http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
+Project Structure
+SCAFFOLD-STELLAR-PNPM
+│   README.md
+│   package.json
+│   pnpm-workspace.yaml
+│   .gitignore
+└───packages
+    └───nextjs
+        │   package.json
+        │   tsconfig.json
+        │   next.config.js
+        └───src
+            └───app
+                └───page.tsx
+packages/nextjs: Contains the Next.js application.
+pnpm-workspace.yaml: Configuration for the monorepo.
+.gitignore: Files and directories ignored by Git.
+Useful Commands
+    Start Development Server
+        pnpm dev -F nextjs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Build for Production
+    pnpm build -F nextjs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run in Production Mode
+    pnpm start -F nextjs
