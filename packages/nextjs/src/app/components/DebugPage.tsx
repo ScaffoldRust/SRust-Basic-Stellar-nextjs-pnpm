@@ -1,17 +1,11 @@
 "use client";
-
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils"; // Utility for conditional class merging
-
-type Mode = "read" | "write";
-type Token = "ETH" | "STRK";
 
 export function DebugPage() {
-  const [mode, setMode] = useState<Mode>("read");
-  const [token, setToken] = useState<Token>("ETH");
+  const [mode, setMode] = useState<"read" | "write">("read");
 
   const readMethods = [
     { name: "balance_of", params: ["account"] },
@@ -28,56 +22,34 @@ export function DebugPage() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 p-6">
       <div className="max-w-7xl mx-auto">
-        {/* Token Switcher */}
+        {/* Static Tab */}
         <div className="flex space-x-3 mb-4">
-          {["ETH", "STRK"].map((t) => (
-            <Button
-              key={t}
-              variant={token === t ? "default" : "outline"}
-              onClick={() => setToken(t as Token)}
-            >
-              {t}
-            </Button>
-          ))}
+          <Button variant="default">XLM</Button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
           {/* Contract Info Panel */}
           <div className="col-span-2 space-y-6">
             <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3">
-                  <div className="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center">
-                    <span className="text-white text-sm">✔️</span>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">0x0471...9338D</p>
-                    <div className="flex items-center space-x-2">
-                      <p className="text-sm font-medium">
-                        Balance: 0.2281 {token}
-                      </p>
-                      {token === "ETH" && (
-                        <p className="text-sm text-gray-500">388.9996 STRK</p>
-                      )}
-                    </div>
-                  </div>
+              <CardContent className="p-6 space-y-4">
+                <div className="text-center">
+                  <p className="text-xl font-semibold">Account Balance</p>
+                  <p className="text-2xl font-bold">1234.5678 XLM</p>
                 </div>
-                <p className="text-sm text-gray-500 mt-2">
-                  Network: Starknet Sepolia testnet
-                </p>
+                <div className="text-center border-t pt-4">
+                  <p className="text-sm text-gray-500">Transaction Fee:</p>
+                  <p className="text-lg font-semibold">0.00001 XLM</p>
+                </div>
               </CardContent>
             </Card>
 
             <Card>
               <CardContent className="p-6 space-y-4">
                 {[
-                  { label: "name", value: "0x53746172726b6e657420546f6b656e" },
-                  { label: "symbol", value: "0x5354524b" },
-                  { label: "decimals", value: "18" },
-                  {
-                    label: "totalSupply",
-                    value: "443309.56638079884268519472",
-                  },
+                  { label: "name", value: "Stellar Token" },
+                  { label: "symbol", value: "XLM" },
+                  { label: "decimals", value: "7" },
+                  { label: "totalSupply", value: "500,000,000 XLM" },
                 ].map(({ label, value }) => (
                   <div key={label}>
                     <p className="text-sm text-gray-500">{label}</p>
@@ -96,7 +68,7 @@ export function DebugPage() {
                   key={m}
                   className="flex-1"
                   variant={mode === m ? "default" : "outline"}
-                  onClick={() => setMode(m as Mode)}
+                  onClick={() => setMode(m as "read" | "write")}
                 >
                   {m.charAt(0).toUpperCase() + m.slice(1)}
                 </Button>
