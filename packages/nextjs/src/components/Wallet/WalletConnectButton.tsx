@@ -21,7 +21,6 @@ export function WalletConnectButton() {
     const result = await connectWallet();
     if (!result.success && result.error) {
       setErrorMessage(result.error);
-      // Could also use Sonner here for toast notifications
       console.error(result.error);
     }
   };

@@ -1,15 +1,13 @@
-// src/hooks/useWallet.ts
 "use client";
 
 import { useWalletContext } from "@/context/WalletContext";
 import {
-  FREIGHTER_ID,
-  LOBSTR_ID,
   WalletNetwork,
   ISupportedWallet
 } from "@creit.tech/stellar-wallets-kit";
 import { useState } from "react";
 import { kit } from "@/constants/wallet.constants";
+import { toast } from 'sonner';
 
 export const useWallet = () => {
   const walletState = useWalletContext();
@@ -43,12 +41,17 @@ export const useWallet = () => {
           }
         },
         onClosed: (err) => {
-          if (err) {
-            setError(err.message);
-            console.error("Modal closed with error:", err);
+            if (err) {
+              if (err.message === "Modal closed") {
+                console.log("User closed the wallet selection modal");
+              } else {
+                setError(err.message);
+                console.error("Modal closed with error:", err);
+                toast.error("Error connecting wallet: " + err.message);
+              }
+            }
+            setIsConnecting(false);
           }
-          setIsConnecting(false);
-        }
       });
       
       return { success: true };

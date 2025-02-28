@@ -17,7 +17,6 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   const [name, setName] = useState<string | null>(null);
   const [connected, setConnected] = useState(false);
 
-  // Persistence logic (optional)
   useEffect(() => {
     // Check if wallet was connected in a previous session
     const savedAddress = localStorage.getItem("stellarWalletAddress");
@@ -34,8 +33,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     setAddress(address);
     setName(name);
     setConnected(true);
-    
-    // Save to localStorage for persistence
+
     localStorage.setItem("stellarWalletAddress", address);
     localStorage.setItem("stellarWalletName", name);
   };
@@ -45,7 +43,6 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     setName(null);
     setConnected(false);
     
-    // Clear from localStorage
     localStorage.removeItem("stellarWalletAddress");
     localStorage.removeItem("stellarWalletName");
   };

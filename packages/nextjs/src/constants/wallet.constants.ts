@@ -7,6 +7,6 @@ import {
   
   export const kit: StellarWalletsKit = new StellarWalletsKit({
     network: WalletNetwork.TESTNET,
-    selectedWalletId: FREIGHTER_ID, // set Freighter as the default wallet
+    selectedWalletId: FREIGHTER_ID,
     modules: allowAllModules(),
   });
