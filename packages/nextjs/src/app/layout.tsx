@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MouseMoveEffect from "@/components/mouse-move-effect";
 import { Toaster } from "@/components/ui/sonner";
+import { WalletProvider } from "@/context/WalletContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <MouseMoveEffect />
-        {children}
-        <Toaster />
+        <WalletProvider>
+          <MouseMoveEffect />
+          {children}
+          <Toaster />
+        </WalletProvider>
       </body>
     </html>
   );
