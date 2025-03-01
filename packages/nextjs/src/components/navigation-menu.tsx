@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { navigationItems } from "./nav-items"
+import { WalletConnectButton } from "@/components/Wallet/WalletConnectButton"
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false)
@@ -57,7 +58,7 @@ export default function Navbar() {
           <NavigationMenuList>{navigationItems}</NavigationMenuList>
         </NavigationMenu>
       </div>
-      <Button>Connect Wallet</Button>
+      <WalletConnectButton />
     </div>
   )
 }
