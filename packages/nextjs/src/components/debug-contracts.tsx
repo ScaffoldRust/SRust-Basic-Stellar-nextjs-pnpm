@@ -61,14 +61,14 @@ export function DebugContracts() {
 
   return (
     <section className="container py-16 lg:py-20">
-      <div className="mb-12">
+      <div className="mb-12 space-y-5">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
           Debug with Confidence
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
           Powerful debugging tools to help you build and test smart contracts.
         </p>
-        <div className="mt-5">
+        <div>
           <Link href="/debug" className="outline-none border-none">
             <Button variant="outline" size="lg">
               <Bug className="mr-2 h-4 w-4" />
