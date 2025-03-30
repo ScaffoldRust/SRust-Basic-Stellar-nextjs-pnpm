@@ -5,6 +5,7 @@ import MouseMoveEffect from "@/components/mouse-move-effect";
 import { Toaster } from "@/components/ui/sonner";
 import { WalletProvider } from "@/context/WalletContext";
 import { ContractDebugProvider } from "@/context/ContractDebugContext";
+import Navbar from "@/components/navigation-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Scaffold Rust",
-  description: "A powerful, modular, and efficient toolset for building, testing, and deploying smart contracts on the Stellar blockchain.",
+  description:
+    "A powerful, modular, and efficient toolset for building, testing, and deploying smart contracts on the Stellar blockchain.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -31,6 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
             <Toaster />
           </ContractDebugProvider>
+          <MouseMoveEffect />
+          <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <Navbar />
+          </header>
+          {children}
+          <Toaster />
         </WalletProvider>
       </body>
     </html>

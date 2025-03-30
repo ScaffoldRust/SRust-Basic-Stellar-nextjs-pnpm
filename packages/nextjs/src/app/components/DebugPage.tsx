@@ -20,7 +20,7 @@ export function DebugPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 p-6">
+    <div className="min-h-screen p-6">
       <div className="max-w-7xl mx-auto">
         {/* Static Tab */}
         <div className="flex space-x-3 mb-4">
@@ -33,11 +33,15 @@ export function DebugPage() {
             <Card>
               <CardContent className="p-6 space-y-4">
                 <div className="text-center">
-                  <p className="text-xl font-semibold">Account Balance</p>
+                  <p className="font-medium text-muted-foreground">
+                    Account Balance
+                  </p>
                   <p className="text-2xl font-bold">1234.5678 XLM</p>
                 </div>
                 <div className="text-center border-t pt-4">
-                  <p className="text-sm text-gray-500">Transaction Fee:</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Transaction Fee:
+                  </p>
                   <p className="text-lg font-semibold">0.00001 XLM</p>
                 </div>
               </CardContent>
@@ -52,8 +56,8 @@ export function DebugPage() {
                   { label: "totalSupply", value: "500,000,000 XLM" },
                 ].map(({ label, value }) => (
                   <div key={label}>
-                    <p className="text-sm text-gray-500">{label}</p>
-                    <p className="text-sm font-mono text-gray-900">{value}</p>
+                    <p className="text-sm text-muted-foreground">{label}</p>
+                    <p className="text-sm font-mono">{value}</p>
                   </div>
                 ))}
               </CardContent>
@@ -62,7 +66,7 @@ export function DebugPage() {
 
           {/* Contract Methods Panel */}
           <div className="col-span-4">
-            <div className="flex justify-between p-2 border border-black rounded-lg mb-6">
+            <div className="flex justify-between p-2 border rounded-lg mb-6 gap-2">
               {["read", "write"].map((m) => (
                 <Button
                   key={m}
@@ -80,13 +84,13 @@ export function DebugPage() {
                 {(mode === "read" ? readMethods : writeMethods).map(
                   (method, index) => (
                     <div key={index} className="pb-4">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold mb-3">
                         {method.name}
                       </h3>
                       <div className="space-y-3">
                         {method.params.map((param, paramIndex) => (
                           <div key={paramIndex}>
-                            <label className="block text-sm text-gray-600 mb-1">
+                            <label className="block text-sm text-muted-foreground mb-1">
                               {param}
                             </label>
                             <Input placeholder={`Enter ${param}`} />

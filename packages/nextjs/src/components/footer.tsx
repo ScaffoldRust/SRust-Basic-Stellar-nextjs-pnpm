@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { motion } from "framer-motion"
-import { Github, Twitter, DiscIcon as Discord, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
+import { Github, Twitter, DiscIcon as Discord, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const container = {
   hidden: { opacity: 0 },
@@ -13,12 +14,12 @@ const container = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
-}
+};
 
 export function Footer() {
   return (
@@ -34,16 +35,29 @@ export function Footer() {
           <motion.div variants={item} className="space-y-4 text-white">
             <h3 className="text-lg font-bold">Scaffold Rust</h3>
             <p className="text-sm text-white">
-              Build, test, and deploy smart contracts on Stellar with confidence.
+              Build, test, and deploy smart contracts on Stellar with
+              confidence.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:text-primary"
+              >
                 <Github className="h-5 w-5 text-orange-700" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:text-primary"
+              >
                 <Twitter className="h-5 w-5 text-orange-700" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:text-primary">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:text-primary"
+              >
                 <Discord className="h-5 w-5 text-orange-700" />
               </Button>
             </div>
@@ -52,24 +66,36 @@ export function Footer() {
             <h3 className="mb-4 text-lg font-bold">Resources</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   Documentation
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   API Reference
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   Tutorials
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   Examples
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
@@ -77,32 +103,50 @@ export function Footer() {
             <h3 className="mb-4 text-lg font-bold">Community</h3>
             <ul className="space-y-3 text-sm text-white">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   GitHub Discussions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   Discord Server
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   Twitter
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-primary outline-none border-none"
+                >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
           <motion.div variants={item} className="space-y-4">
             <h3 className="text-lg font-bold">Stay Updated</h3>
-            <p className="text-sm text-muted-foreground">Subscribe to our newsletter for updates and announcements.</p>
+            <p className="text-sm text-muted-foreground">
+              Subscribe to our newsletter for updates and announcements.
+            </p>
             <div className="flex gap-2">
-              <Input type="email" placeholder="Enter your email" className="max-w-[220px] bg-black/20" />
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="max-w-[220px] bg-black/20"
+              />
               <Button variant="default" size="icon">
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -120,6 +164,5 @@ export function Footer() {
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }
-

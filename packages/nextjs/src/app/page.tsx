@@ -1,9 +1,8 @@
-import Navbar from "@/components/navigation-menu"
-import { Features } from "@/components/features"
-import { DebugContracts } from "@/components/debug-contracts"
-import { HeroSection } from "@/components/hero"
-import { CallToAction } from "@/components/call-to-action"
-import { Footer } from "@/components/footer"
+import { Features } from "@/components/features";
+import { DebugContracts } from "@/components/debug-contracts";
+import { HeroSection } from "@/components/hero";
+import { CallToAction } from "@/components/call-to-action";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -15,9 +14,6 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <Navbar />
-        </header>
         <main className="flex flex-col items-center">
           <HeroSection />
           <Features />
@@ -27,5 +23,5 @@ export default function Home() {
         <Footer />
       </div>
     </div>
-  )
+  );
 }
