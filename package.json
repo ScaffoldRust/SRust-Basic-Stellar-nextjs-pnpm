@@ -8,5 +8,16 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "lucide-react": "^0.475.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "sonner": "^2.0.1",
+    "stellar-sdk": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
 }
