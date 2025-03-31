@@ -4,6 +4,7 @@ import "./globals.css";
 import MouseMoveEffect from "@/components/mouse-move-effect";
 import { Toaster } from "@/components/ui/sonner";
 import { WalletProvider } from "@/context/WalletContext";
+import { ContractDebugProvider } from "@/context/ContractDebugContext";
 import Navbar from "@/components/navigation-menu";
 
 const geistSans = Geist({
@@ -22,17 +23,16 @@ export const metadata: Metadata = {
     "A powerful, modular, and efficient toolset for building, testing, and deploying smart contracts on the Stellar blockchain.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <WalletProvider>
+          <ContractDebugProvider>
+            <MouseMoveEffect />
+            {children}
+            <Toaster />
+          </ContractDebugProvider>
           <MouseMoveEffect />
           <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <Navbar />
@@ -44,3 +44,4 @@ export default function RootLayout({
     </html>
   );
 }
+
